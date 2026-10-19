@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --cat-bg: #0f0b1d;
+  --cat-bg-soft: #151027;
+
+  --cat-card: rgba(255, 255, 255, 0.045);
+  --cat-card-hover: rgba(255, 255, 255, 0.075);
+
+  --cat-border: rgba(255, 255, 255, 0.09);
+  --cat-border-hover: rgba(167, 139, 250, 0.35);
+
+  --cat-text: #ffffff;
+  --cat-text-soft: #b7aecf;
+  --cat-text-muted: #817796;
+
+  --cat-purple: #8b5cf6;
+  --cat-purple-light: #a78bfa;
+  --cat-purple-dark: #6d28d9;
+
+  --cat-radius: 22px;
+  --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+.how-it-works-section * {
+  box-sizing: border-box;
+  font-family: var(--font-main);
+}
+
+.how-it-works-section {
+  width: 100%;
+  padding: 90px 4%;
+  background-color: var(--cat-bg);
+  color: var(--cat-text);
+  display: flex;
+  justify-content: center;
+}
+
+.how-it-works-container {
+  width: min(1320px, 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+/* Header Styles */
+.how-it-works-header {
+  flex: 0 0 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.steps-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(167, 139, 250, 0.1);
+  border: 1px solid rgba(167, 139, 250, 0.25);
+  color: var(--cat-purple-light);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+}
+
+.how-it-works-header h2 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--cat-text);
+  margin: 0 0 14px 0;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.how-it-works-header p {
+  font-size: 0.9375rem;
+  color: var(--cat-text-soft);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Steps Layout */
+.steps-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.step-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 24px 16px;
+  border-radius: var(--cat-radius);
+  background: var(--cat-card);
+  border: 1px solid var(--cat-border);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.step-card:hover {
+  background: var(--cat-card-hover);
+  border-color: var(--cat-border-hover);
+  transform: translateY(-5px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3), 0 0 20px rgba(139, 92, 246, 0.15);
+}
+
+/* Icon & Step Number Circle */
+.icon-badge-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.step-number {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--cat-purple);
+  color: var(--cat-text);
+  font-size: 0.75rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.icon-circle {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--cat-bg-soft);
+  border: 1px solid var(--cat-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cat-purple-light);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.step-card:hover .icon-circle {
+  border-color: var(--cat-purple-light);
+  transform: scale(1.05);
+  color: var(--cat-text);
+}
+
+.step-card h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--cat-text);
+  margin: 0 0 8px 0;
+  line-height: 1.3;
+}
+
+.step-card p {
+  font-size: 0.8125rem;
+  color: var(--cat-text-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.step-arrow {
+  color: var(--cat-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 1100px) {
+  .how-it-works-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 36px;
+  }
+
+  .how-it-works-header {
+    flex: none;
+    max-width: 520px;
+  }
+
+  .steps-wrapper {
+    width: 100%;
+  }
+}
+
+@media (max-width: 850px) {
+  .steps-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .step-arrow {
+    display: none;
+  }
+
+  .step-card {
+    padding: 28px 20px;
+  }
+}
+
+@media (max-width: 500px) {
+  .steps-wrapper {
+    grid-template-columns: 1fr;
+  }
+
+  .how-it-works-section {
+    padding: 60px 20px;
+  }
+
+  .how-it-works-header h2 {
+    font-size: 1.85rem;
+  }
+}

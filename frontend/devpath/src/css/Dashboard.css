@@ -1,0 +1,253 @@
+/* Dashboard.css — responsive layout */
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.dashboard {
+  display: flex;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  background: #09090f;
+  color: #f5f3ff;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* ---------- Sidebar ---------- */
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  width: 250px;
+  padding: 28px 18px;
+  overflow-y: auto;
+  background: #11101a;
+  border-right: 1px solid #292436;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 38px;
+  padding: 0 10px;
+  color: #c4b5fd;
+  font-size: 1.4rem;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.menu-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  min-height: 46px;
+  padding: 12px 14px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: transparent;
+  color: #aaa5bc;
+  text-align: left;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.menu-btn:hover {
+  background: #211832;
+  color: #ffffff;
+}
+
+.menu-btn.active {
+  background: linear-gradient(135deg, #6d28d9, #8b5cf6);
+  color: #ffffff;
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.2);
+}
+
+.logout-btn {
+  margin-top: auto;
+  color: #fca5a5;
+}
+
+.logout-btn:hover {
+  background: #321b2a;
+  color: #fecaca;
+}
+
+/* ---------- Main content ---------- */
+
+.content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  padding: clamp(14px, 2.5vw, 35px);
+  overflow: hidden;
+}
+
+.dashboard-header {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: clamp(16px, 2.5vw, 30px);
+}
+
+.dashboard-header h1 {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(1.4rem, 3vw, 2.4rem);
+}
+
+.dashboard-user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 50%;
+  padding: 10px 16px;
+  border: 1px solid #343044;
+  border-radius: 12px;
+  background: #151320;
+  color: #ddd6fe;
+  overflow-wrap: anywhere;
+}
+
+.content-box {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  border: 1px solid #30283f;
+  border-radius: 20px;
+  background: #141320;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+}
+
+.dashboard-overview {
+  padding: clamp(18px, 3vw, 32px);
+}
+
+.dashboard-overview h2 {
+  margin-top: 0;
+}
+
+/* ---------- Tablet ---------- */
+
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 210px;
+    padding: 24px 12px;
+  }
+}
+
+/* ---------- Small tablet / mobile: sidebar becomes a top bar ---------- */
+
+@media (max-width: 768px) {
+  .dashboard {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    display: grid;
+    grid-template-areas:
+      "logo logout"
+      "menu menu";
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    row-gap: 10px;
+    width: 100%;
+    padding: 12px 14px;
+    overflow: visible;
+    border-right: none;
+    border-bottom: 1px solid #292436;
+  }
+
+  .logo {
+    grid-area: logo;
+    margin: 0;
+    padding: 0;
+    font-size: 1.25rem;
+  }
+
+  .logout-btn {
+    grid-area: logout;
+    width: auto;
+    min-height: 40px;
+    margin: 0;
+    padding: 8px 12px;
+  }
+
+  .menu {
+    grid-area: menu;
+    flex-direction: row;
+    gap: 8px;
+    padding-bottom: 4px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .menu::-webkit-scrollbar {
+    display: none;
+  }
+
+  .menu-btn {
+    flex: 0 0 auto;
+    justify-content: center;
+    width: auto;
+    min-height: 42px;
+    padding: 10px 14px;
+  }
+
+  .dashboard-user {
+    max-width: 60%;
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
+
+  .content-box {
+    border-radius: 14px;
+  }
+}
+
+/* ---------- Small phones ---------- */
+
+@media (max-width: 480px) {
+  .logout-btn span {
+    display: none; /* icon only */
+  }
+
+  .menu-btn {
+    gap: 7px;
+    padding: 9px 11px;
+    font-size: 0.85rem;
+  }
+
+  .dashboard-header {
+    gap: 10px;
+  }
+
+  .dashboard-user span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

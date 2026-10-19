@@ -1,0 +1,59 @@
+
+/* Password requirements */
+.password-checks {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+  display: grid;
+  gap: 6px;
+}
+
+.password-check {
+  color: #f87171;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.password-check.valid {
+  color: #4ade80;
+}
+
+/* Confirm password feedback */
+.confirm-feedback {
+  display: block;
+  margin-top: 7px;
+  font-size: 12px;
+  color: #f87171;
+}
+
+.confirm-feedback.valid {
+  color: #4ade80;
+}
+
+/* API success and error messages */
+.auth-message {
+  margin-top: 16px;
+  padding: 11px 13px;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.auth-message.success {
+  color: #86efac;
+  background: rgba(34, 197, 94, 0.12);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.auth-message.error {
+  color: #fca5a5;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+/* Disabled submit button */
+.btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}

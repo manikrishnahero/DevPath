@@ -1,0 +1,264 @@
+/* Login.css */
+
+/* Shared dark and purple authentication theme */
+
+.page-auth {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  padding: 40px 6%;
+  box-sizing: border-box;
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(139, 92, 246, 0.18),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 85% 80%,
+      rgba(168, 85, 247, 0.15),
+      transparent 35%
+    ),
+    #09090f;
+  color: #f5f3ff;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.auth-panel--intro {
+  flex: 1;
+  max-width: 480px;
+}
+
+.auth-panel__title {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.2;
+  margin-bottom: 20px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  background: linear-gradient(135deg, #ffffff, #c4b5fd, #a855f7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.auth-panel__text {
+  max-width: 400px;
+  color: #a1a1b5;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.auth-panel--form {
+  width: 100%;
+  max-width: 460px;
+  flex-shrink: 0;
+}
+
+.auth-card {
+  padding: 40px;
+  border: 1px solid rgba(167, 139, 250, 0.2);
+  border-radius: 24px;
+  background: rgba(20, 19, 32, 0.88);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.4),
+    0 0 35px rgba(139, 92, 246, 0.08);
+  backdrop-filter: blur(18px);
+}
+
+.auth-card__title {
+  margin: 0 0 30px;
+  font-size: 2rem;
+  font-weight: 750;
+  color: #ffffff;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.field label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #ddd6fe;
+}
+
+.field input {
+  width: 100%;
+  min-height: 48px;
+  padding: 13px 15px;
+  box-sizing: border-box;
+  outline: none;
+  border: 1px solid #343044;
+  border-radius: 11px;
+  background: #11101a;
+  color: #ffffff;
+  font-size: 0.95rem;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.field input::placeholder {
+  color: #77738b;
+}
+
+.field input:focus {
+  border-color: #a78bfa;
+  box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.15);
+}
+
+.btn {
+  min-height: 50px;
+  padding: 13px 20px;
+  border: none;
+  border-radius: 11px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s, filter 0.2s;
+}
+
+.btn-primary {
+  color: #ffffff;
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+  box-shadow: 0 8px 22px rgba(139, 92, 246, 0.25);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.12);
+  box-shadow: 0 12px 28px rgba(139, 92, 246, 0.35);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-block {
+  width: 100%;
+  margin-top: 4px;
+}
+
+.auth-message {
+  margin: 18px 0 0;
+  color: #c4b5fd;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.auth-switch {
+  margin: 25px 0 0;
+  color: #a1a1b5;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.auth-switch a {
+  color: #c4b5fd;
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.auth-switch a:hover {
+  color: #e9d5ff;
+  text-decoration: underline;
+}
+
+/* Tablet */
+
+@media (max-width: 900px) {
+  .page-auth {
+    gap: 35px;
+    padding: 35px 5%;
+  }
+
+  .auth-panel--intro {
+    max-width: 340px;
+  }
+
+  .auth-card {
+    padding: 32px;
+  }
+
+  .auth-panel--form {
+    max-width: 420px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 650px) {
+  .page-auth {
+    flex-direction: column;
+    justify-content: center;
+    gap: 25px;
+    padding: 35px 18px;
+  }
+
+  .auth-panel--intro {
+    max-width: 460px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .auth-panel__title {
+    font-size: 2rem;
+    margin-bottom: 12px;
+  }
+
+  .auth-panel__text {
+    margin: 0 auto;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .auth-panel--form {
+    max-width: 460px;
+  }
+
+  .auth-card {
+    padding: 28px 22px;
+    border-radius: 20px;
+  }
+
+  .auth-card__title {
+    font-size: 1.7rem;
+    margin-bottom: 25px;
+  }
+
+  .auth-form {
+    gap: 19px;
+  }
+}
+
+/* Small phones */
+
+@media (max-width: 360px) {
+  .page-auth {
+    padding: 25px 12px;
+  }
+
+  .auth-card {
+    padding: 24px 16px;
+  }
+
+  .auth-panel__title {
+    font-size: 1.7rem;
+  }
+
+  .auth-card__title {
+    font-size: 1.5rem;
+  }
+}
