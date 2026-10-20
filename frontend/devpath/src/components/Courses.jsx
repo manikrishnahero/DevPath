@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useCallback } from "react";
 import LearningVideos from "../components/LearningVideos";
 import "../css/Courses.css";
+import { API_URL } from "./config";
 
-const API_BASE_URL = "http://127.0.0.1:8000"; // Replace with your domain if hosted
 
 export default function Courses() {
   const [categories, setCategories] = useState([]);
@@ -14,7 +14,7 @@ export default function Courses() {
 
   // Fetch Categories on Mount
   useEffect(() => {
-    fetch(`${API_BASE_URL}/categories/`)
+    fetch(`${API_URL}/categories/`)
       .then((res) => res.json())
       .then((data) => setCategories(data))
       .catch((err) => console.error("Error fetching categories:", err));
@@ -25,8 +25,8 @@ export default function Courses() {
     setLoading(true);
     const endpoint =
       selectedCategory === "all"
-        ? `${API_BASE_URL}/courses/`
-        : `${API_BASE_URL}/courses/?category=${selectedCategory}`;
+        ? `${API_URL}/courses/`
+        : `${API_URL}/courses/?category=${selectedCategory}`;
 
     fetch(endpoint)
       .then((res) => res.json())

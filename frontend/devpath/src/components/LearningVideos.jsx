@@ -1,8 +1,8 @@
 
 import { useEffect, useState } from "react";
 import "../css/LearningVideos.css";
+import { API_URL } from "./config";
 
-const API_BASE_URL = "http://127.0.0.1:8000";
 
 export default function VideoPlayer({ item, onClose }) {
   const [videos, setVideos] = useState([]);
@@ -26,7 +26,7 @@ export default function VideoPlayer({ item, onClose }) {
 
       try {
         const response = await fetch(
-          `${API_BASE_URL}/videos/?${query}`,
+          `${API_URL}/videos/?${query}`,
           { signal: controller.signal }
         );
 
@@ -76,7 +76,7 @@ export default function VideoPlayer({ item, onClose }) {
 
     return video.video_file.startsWith("http")
       ? video.video_file
-      : `${API_BASE_URL}${video.video_file}`;
+      : `${API_URL}${video.video_file}`;
   }
 
   return (

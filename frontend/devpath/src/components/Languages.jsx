@@ -1,8 +1,8 @@
 import { useEffect, useState, useCallback } from "react";
 import LearningVideos from "../components/LearningVideos";
 import "../css/Languages.css";
+import { API_URL } from "./config";
 
-const API_URL = "http://127.0.0.1:8000/programming-languages/";
 
 export default function ProgrammingLanguages() {
   const [languages, setLanguages] = useState([]);
@@ -18,7 +18,7 @@ export default function ProgrammingLanguages() {
 
     async function fetchLanguages() {
       try {
-        const response = await fetch(API_URL, { signal: controller.signal });
+        const response = await fetch(`${API_URL}`, { signal: controller.signal });
         if (!response.ok) {
           throw new Error("Failed to load programming languages.");
         }
