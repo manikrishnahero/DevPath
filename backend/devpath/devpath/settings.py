@@ -42,6 +42,8 @@ CSRF_TRUSTED_ORIGINS = [
 if RENDER_HOST:
     CSRF_TRUSTED_ORIGINS.append(f"https://{RENDER_HOST}")
 
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
 
 STORAGES = {
     "default": {"BACKEND": "django.core.files.storage.FileSystemStorage"},
@@ -153,9 +155,6 @@ MAILERS = {
 }
 
 
-SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
-
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 
 CORS_ALLOWED_ORIGINS = [
