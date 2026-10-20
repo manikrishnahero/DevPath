@@ -35,7 +35,10 @@ ALLOWED_HOSTS = [
 RENDER_HOST = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_HOST:
     ALLOWED_HOSTS.append(RENDER_HOST)
-CSRF_TRUSTED_ORIGINS = ["https://un-frontend.onrender.com"]
+CSRF_TRUSTED_ORIGINS = [
+    "https://devpath-ccqb.onrender.com",
+    "https://dev-path-seven-zeta.vercel.app",
+]
 if RENDER_HOST:
     CSRF_TRUSTED_ORIGINS.append(f"https://{RENDER_HOST}")
 
@@ -150,11 +153,14 @@ MAILERS = {
 }
 
 
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
 
 CORS_ALLOWED_ORIGINS = [
-    "https://un-frontend.onrender.com",
     "http://localhost:5173",
-    "https://dev-path.vercel.app",
+    "https://dev-path-seven-zeta.vercel.app",
 ]
 
 CORS_ALLOWED_ORIGIN_REGEXES = [

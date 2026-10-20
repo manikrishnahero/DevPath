@@ -1,9 +1,7 @@
-
-# views.py
-
 import re
-from django.contrib.auth.models import User
-from django.contrib.auth import authenticate
+import logging
+
+from django.contrib.auth import authenticate, get_user_model
 from django.core.validators import validate_email
 from django.core.exceptions import ValidationError
 from django.db import transaction
@@ -25,6 +23,12 @@ from rest_framework.generics import ListAPIView, CreateAPIView
 
 from .models import Video
 from .serializers import VideoSerializer, VideoUploadSerializer
+
+# Custom user model (AUTH_USER_MODEL = "developerpath.User")
+User = get_user_model()
+
+logger = logging.getLogger(__name__)
+
 
 # -------------------------
 # PASSWORD VALIDATION
@@ -53,8 +57,8 @@ def validate_strong_password(password):
 # -------------------------
 @api_view(["POST"])
 def register_user(request):
-    username = request.data.get("username", "").strip()
-    email = request.data.get("email", "").strip()
+    username = str(request.data.get("username", "")).strip()
+    email = str(request.data.get("email", "")).strip()
     password = request.data.get("password", "")
     confirm_password = request.data.get("confirm_password", "")
 
@@ -113,7 +117,8 @@ def register_user(request):
                 password=password
             )
     except Exception:
-        # Log the underlying exception in production.
+        # Full error goes to the Render logs
+        logger.exception("Registration failed")
         return Response(
             {"error": "Registration failed. Please try again."},
             status=status.HTTP_400_BAD_REQUEST
