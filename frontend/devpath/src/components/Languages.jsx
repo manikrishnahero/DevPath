@@ -1,7 +1,7 @@
 import { useEffect, useState, useCallback } from "react";
 import LearningVideos from "../components/LearningVideos";
 import "../css/Languages.css";
-import { API_URL } from "./config";
+import { API_URL } from "../config";
 
 
 export default function ProgrammingLanguages() {

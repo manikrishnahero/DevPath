@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from "react";
 import "../css/LearningVideos.css";
-import { API_URL } from "./config";
+import { API_URL } from "../config";
 
 
 export default function VideoPlayer({ item, onClose }) {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import LearningVideos from "../components/LearningVideos";
 import "../css/Courses.css";
-import { API_URL } from "./config";
+import { API_URL } from "../config.js";
 
 
 export default function Courses() {
