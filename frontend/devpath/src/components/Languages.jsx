@@ -18,7 +18,7 @@ export default function ProgrammingLanguages() {
 
     async function fetchLanguages() {
       try {
-        const response = await fetch(`${API_URL}`, { signal: controller.signal });
+        const response = await fetch(`${API_URL}/programming-languages/`, { signal: controller.signal });
         if (!response.ok) {
           throw new Error("Failed to load programming languages.");
         }
